@@ -1,14 +1,22 @@
-import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
 
+//Adam Schoelz
 
 public class AlgorithmsAssignment4A {
 	public static void main(String args[]){
-		String[] s = new String[3];
+		Scanner s = new Scanner(System.in);
+		int size = 0;
+		System.out.println("Please enter a number and then a series of lines that represents the array");
+		size = s.nextInt();
+		String[] str = new String[size];
+		s.nextLine();
+		for(int i = 0; i < str.length; i++){
+			str[i] = s.nextLine();
+		}
+		System.out.println(generatePrice(str));
 		
-		s[0] = "90 6 90";
-		s[1] = "3 90 90";
-		s[2] = "90 90 5";
-		System.out.println(generatePrice(s));
+		s.close();
 	}
 	
 	public static int generatePrice(String[] str){
@@ -50,7 +58,6 @@ public class AlgorithmsAssignment4A {
 			//Select mininum out of previous two relevant elements
 			next1 = (prevIndex + 1) % 3;
 			next2 = (prevIndex + 2) % 3;
-			System.out.println(next1 + " n2 " + next2 + " pi " + prevIndex);
 			if(prices[i][next1] <= prices[i][next2]){
 				prevIndex = next1;
 				cost += prices[i][next1];
