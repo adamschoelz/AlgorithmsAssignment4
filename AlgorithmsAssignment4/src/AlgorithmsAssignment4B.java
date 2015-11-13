@@ -52,6 +52,7 @@ public class AlgorithmsAssignment4B {
 				bikes.remove(bikes.indexOf(minBike));
 				spots.remove(spots.indexOf(minSpot));
 				min += minDist;
+				m[minSpot.getLeft()][minSpot.getRight()] = 4;
 			}
 		}
 		
@@ -109,7 +110,7 @@ public class AlgorithmsAssignment4B {
 			Dist u = q.remove();
 			//For each neighbor of u check if exists, can be passed through, and distance is less
 			//Left
-			if(u.getX() - 1 >= 0 && graph[u.getX() - 1][u.getY()] < 3){
+			if(u.getX() - 1 >= 0 && (graph[u.getX() - 1][u.getY()] < 2 || (u.getX() - 1 == x && u.getY() == y))){
 				int alt = dist[u.getX()][u.getY()] + 1;
 				if(alt < dist[u.getX() - 1][u.getY()]  && alt >= 0){
 					dist[u.getX() - 1][u.getY()] = alt;
@@ -117,7 +118,7 @@ public class AlgorithmsAssignment4B {
 				}
 			}
 			//Right
-			if(u.getX() + 1 < graph.length && graph[u.getX() + 1][u.getY()] < 3){
+			if(u.getX() + 1 < graph.length && (graph[u.getX() + 1][u.getY()] < 2 || (u.getX() + 1 == x && u.getY() == y))){
 				int alt = dist[u.getX()][u.getY()] + 1;
 				if(alt < dist[u.getX() + 1][u.getY()]  && alt >= 0){
 					dist[u.getX() + 1][u.getY()] = alt;
@@ -125,7 +126,7 @@ public class AlgorithmsAssignment4B {
 				}
 			}
 			//Down
-			if(u.getY() - 1 >= 0 && graph[u.getX()][u.getY() - 1] < 3){
+			if(u.getY() - 1 >= 0 && (graph[u.getX()][u.getY() - 1] < 2 || (u.getX() == x && u.getY() - 1 == y))){
 				int alt = dist[u.getX()][u.getY()] + 1;
 				if(alt < dist[u.getX()][u.getY() - 1] && alt >= 0){
 					dist[u.getX()][u.getY() - 1] = alt;
@@ -133,7 +134,7 @@ public class AlgorithmsAssignment4B {
 				}
 			}
 			//Up
-			if(u.getY() + 1 < graph[0].length && graph[u.getX()][u.getY() + 1] < 3){
+			if(u.getY() + 1 < graph[0].length && (graph[u.getX()][u.getY() + 1] < 2 || (u.getX() == x && u.getY() + 1 == y))){
 				int alt = dist[u.getX()][u.getY()] + 1;
 				if(alt < dist[u.getX()][u.getY() + 1]  && alt >= 0){
 					dist[u.getX()][u.getY() + 1] = alt;

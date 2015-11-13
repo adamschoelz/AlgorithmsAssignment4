@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class AlgorithmsAssignment4A {
 	public static void main(String args[]){
-		Scanner s = new Scanner(System.in);
+		/*Scanner s = new Scanner(System.in);
 		int size = 0;
 		System.out.println("Please enter a number and then a series of lines that represents the array");
 		size = s.nextInt();
@@ -16,7 +16,13 @@ public class AlgorithmsAssignment4A {
 		}
 		System.out.println(generatePrice(str));
 		
-		s.close();
+		s.close();*/
+		
+		String[] str = new String[3];
+		str[0] = "B...S..S.";
+		str[1] = "B...FFFF.";
+		str[2] = ".........";
+		System.out.println(AlgorithmsAssignment4B.minTime(str));
 	}
 	
 	public static int generatePrice(String[] str){
